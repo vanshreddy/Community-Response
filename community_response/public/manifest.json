@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "short_name": "React App",
+  "name": "Community Response",
+  "description": "Sample application showing how to create an extension with Create React App",
+  "browser_action": {
+    "default_title": "CRE",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.bundle.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "run_at": "document_idle"
+
+    }
+  ],
+  "icons": {
+    "16": "img/CR_16.png",
+    "48": "img/CR_48.png",
+    "128": "img/CR_128.png"
+  },
+  "options_page": "options.html",
+  "permissions": ["activeTab","tabs"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

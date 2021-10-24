@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title> Cool Aid Man</title>
+    <h1> Test_Socketss</h1>
+
+    
+    <form id="form">
+        <label>Socket for database Population</label>
+        <button type="submit">Populate</button>
+      </form>
+
+      <form id="form_cleanup">
+        <label>Socket for database Cleanup</label>
+        <button type="submit">Clean up </button>
+      </form>
+
+
+    
+    <script src="/socket.io/socket.io.js"></script> 
+    <script>
+        const socket = io();
+
+        const form_call = (msg) => { socket.emit(`${msg}`)}
+        const form = document.getElementById('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            form_call('Populate');
+        }
+            )
+
+        const form_cleanup = document.getElementById('form_cleanup').addEventListener('submit', (event) => {
+            event.preventDefault();
+            form_call('CleanupDatabase');
+
+            
+        }
+            )
+        
+
+        socket.on("message", message => {
+            console.log(message);
+
+        })
+
+        socket.on("connect", () => {
+            console.log("Socket Connection id:" , socket.id)
+            socket.emit("Print_message" , socket.id)
+        })
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

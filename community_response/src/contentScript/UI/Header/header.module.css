@@ -1,0 +1,46 @@
+.s{
+    display: flex;
+    align-content: center;
+    padding: auto;
+    color: white;
+}
+
+.rectangle_bg{
+display: flex;
+width: 420px;
+height: 175px;
+
+background: rgba(179, 178, 178, 0.76);
+border: 1px solid #000000;
+box-sizing: border-box;
+}
+
+
+.logo{
+width: 229px;
+height: 175px;
+align-items: left;
+background: url("../../../img/CR_128.png") no-repeat;
+
+}
+
+
+
+.Frame_1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 420px;
+    height: 170px;
+    background: #fff;
+}
+.Frame_1 .Rectangle_2 {
+    width: 199px;
+    height: 170px;
+    background: #f3ea1b;
+}
+.Frame_1 .Rectangle_1 {
+    width: 221px;
+    height: 170px;
+    background: #ff2828;
+}
